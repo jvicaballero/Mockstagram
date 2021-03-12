@@ -36,6 +36,10 @@ After Post result changes in Parse Database
 Signup/logout feature
 <img src='https://media.giphy.com/media/Q2YOq6PPQTwwUANOqf/giphy.gif' width='' alt='Video Walkthrough' />
 
+Account Persistence
+<img src='https://media.giphy.com/media/EaXDqlMk1rOH2VZhpL/giphy.gif' width='' alt='Video Walkthrough' />
+
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
