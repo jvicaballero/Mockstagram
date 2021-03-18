@@ -1,6 +1,7 @@
 package com.example.mockstagram;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mockstagram.fragments.PostFragment;
 import com.parse.ParseFile;
 
 import org.w3c.dom.Text;
@@ -44,6 +46,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public int getItemCount() {
         return posts.size();
     }
+
+    public void clear() {
+        Log.i("PostAdapter" , "Clearing Data");
+        posts.clear();
+        notifyDataSetChanged();
+    }
+//
+    //This is already implemented in query post
+//    //Add a list of items -- change to type used
+//    public void addAll(List<Post> posts) {
+//        posts.addAll(posts);
+//        notifyDataSetChanged();
+//    }
 
     class ViewHolder extends RecyclerView.ViewHolder{
 

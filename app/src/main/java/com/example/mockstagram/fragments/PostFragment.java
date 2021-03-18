@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ public class PostFragment extends Fragment {
 
     public static final String TAG = "PostFragment";
     private RecyclerView rvPosts;
+    protected SwipeRefreshLayout swipeContainer;
     protected PostAdapter adapter;
     protected List<Post> allPosts;
     public PostFragment() {
@@ -46,6 +48,7 @@ public class PostFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         allPosts = new ArrayList<>();
+        swipeContainer = view.findViewById(R.id.swipeContainer);
 
         rvPosts = view.findViewById(R.id.rvPosts);
         adapter = new PostAdapter(getContext(), allPosts);
@@ -53,6 +56,20 @@ public class PostFragment extends Fragment {
         rvPosts.setAdapter(adapter);
 
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+//
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.i(TAG , "fetching new data");
+                queryPosts();
+            }
+        });
+
         queryPosts();
     }
 
@@ -72,8 +89,14 @@ public class PostFragment extends Fragment {
                 for(Post post : posts) {
                     Log.i(TAG, "Post: " + post.getDescription() + ", username of user =" + post.getUser().getUsername());
                 }
+
+
+                adapter.clear();
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
+
+                swipeContainer.setRefreshing(false);
+
             }
         });
     }
