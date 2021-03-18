@@ -27,11 +27,18 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+App Login/Take a Picture/Post
 <img src='https://media.giphy.com/media/ZgnbqoJWIkKbkPMKvp/giphy.gif' width='' alt='Video Walkthrough' />
 
+After Post result changes in Parse Database
 <img src='https://media.giphy.com/media/9XRBdoRuxcUnjenA7o/giphy.gif' width='' alt='Video Walkthrough' />
 
+Signup/logout feature
 <img src='https://media.giphy.com/media/Q2YOq6PPQTwwUANOqf/giphy.gif' width='' alt='Video Walkthrough' />
+
+Account Persistence
+<img src='https://media.giphy.com/media/EaXDqlMk1rOH2VZhpL/giphy.gif' width='' alt='Video Walkthrough' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
